@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="root">
+        <div class="container container_enter">
+            <div class="header box1">
+                <div class=" left">
+                    <ul class="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="score">
+                        0
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="right_top">
+                        <div class="best btn">
+                            <span>Top:</span><span class="best_el">2</span>
+                        </div>
+                    </div>
+                    <div class="right_bottom">
+                        <div class="set_box">
+                            <div class="recall btn1 btn">
+                                <span>撤回</span>
+                            </div>
+                            <div class="menu btn1 btn">
+                                <span>菜单</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menus">
+                    <div class="menus_item btn">
+                        <span>关于</span>
+                    </div>
+                    <div class="menus_item btn">
+                        <span>语言</span>
+                    </div>
+                    <div class="menus_item reset btn">
+                        <div class="reset_btn btn">重置</div>
+                        <div class="reset_confirm btn">确定</div>
+                    </div>
+                    <div class="menus_item btn">
+                        <span>退出</span>
+                    </div>
+                    <div class="menus_item interface btn">
+                        <div class="interface_btn btn">界面</div>
+                        <div class="interface_main box1">
+                            <div class="left">
+                                <div class="theme btn">
+                                    <span>切换主题</span>
+                                    <div class="slide">
+                                        <div class="slider"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right">
+                                <div class="right_top">
+                                    <div class="user_defined btn">
+                                        <span>自定义主题</span>
+                                    </div>
+                                </div>
+                                <div class="right_bottom">
+                                    <div class="set_box">
+                                        <div class="zoom btn1 btn">
+                                            <span>缩放</span>
+                                        </div>
+                                        <div class="interface_back btn1 btn">
+                                            <span>返回</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menus_item volume btn">
+                        <span>声音</span>
+                        <span class="volume_level" style="width: 70px;"></span>
+                    </div>
+                    <div class="menus_item speed btn">
+                        <span>速度</span>
+                        <span class="speed_level" style="width: 70px;"></span>
+                    </div>
+                    <div class="menus_item back btn">
+                        <span>返回</span>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="block_box">
+                    <canvas class="canvas" height="390px" width="390px"></canvas>
+                    <div class="mask"></div>
+                </div>
+            </div>
+        </div>
+        <button class="leftbtn">left</button>
+        <button class="rightbtn">right</button>
+        <button class="topbtn">top</button>
+        <button class="bottombtn">bottom</button>
+        <audio src="./move_sound.wav" preload="auto" class="move_sound"></audio>
+        <audio src="./menu_sound.wav" preload="auto" class="menu_sound"></audio>
+        <audio src="" class="music1"></audio>
+        <audio src="" class="music2"></audio>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>
