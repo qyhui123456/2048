@@ -86,7 +86,6 @@ function playMusic(music = music1) {
     }
 }
 
-
 function createBlock() {
     const fragment = document.createDocumentFragment()
     for (let i = 0; i < 4; i++) {
@@ -178,6 +177,7 @@ function getTop(block, index, position) {
         block.top = undefined
     }
 }
+
 function getLeft(block, index, position) {
     if (blocks[index - 4].num !== undefined) {
         block.left = blocks[index - 4]
@@ -189,6 +189,7 @@ function getLeft(block, index, position) {
         block.left = undefined
     }
 }
+
 function getRight(block, index, position) {
     if (blocks[index + 4].num !== undefined) {
         block.right = blocks[index + 4]
@@ -230,6 +231,7 @@ function initialize() {
     const nextIndex = getNext();
     blocks.nextIndex = nextIndex;
 }
+
 initialize()
 
 setPosition()
@@ -272,22 +274,7 @@ const rightbtn = document.querySelector('.rightbtn');
 const topbtn = document.querySelector('.topbtn');
 const bottombtn = document.querySelector('.bottombtn');
 const a = [];
-// 从落点方向开始遍历（非常重要）
-// 注意：方块移动到一个位置，不代表该位置的方块就是它，每个位置都有其方块，前面的说法需要替换后才能成立！！！
 
-// 如果落点在left方向，那么就该从0开始遍历blocks数组，假设有同一行的两个方块a、b；
-// 当靠左的方块（记为a）向左移动后，500ms后置换落点位置方块（被置换的方块会被初始化）；
-// 这时靠右的方块（记为b）开始移动，如果此时a和b为同类型，b多移动至a的最终落点，500ms后置换落点位置方块；
-// 到这里a，b在同一位置，500ms后回调函数开始执行，先执行fna，再执行fnb，最终落点位置的方块变化为：其他方块 => a => b
-
-// 而如果是反方向开始遍历，会导致b先移动，而此时如果a，b为同类型，b移动至a的最终落点，500ms后a和b就会互换位置，同时b的 num*2（被置换的a会被初始化），
-// 当遍历到a时，a开始移动，移动至其最终落点位置，500ms后和落点位置互换。
-// 到这里a和b都在同一个位置，500ms后，置换开始，根据任务的添加先后执行回调，先是执行fnb，该函数替换b和最终落点的位置的方块（a，b目前所在位置），所以a，b目前所在
-// 位置的方块由其他方块，变成了b，这之后开始执行fna，该函数替换a和最终落点的位置（a，b目前所在位置），此时该位置的方块为b，所以b会被替换（被置换的b会被初始化），所以最终
-// 剩下的方块只有方块a，而且数字没有发生变化。最终落点位置的方块变化为：其他方块 => b => a
-
-// 很明显二者的区别在于a，b回调的执行时机，由于发生合并后我们是给最靠右的方块更新num，所以理应保留最靠右的方块，也就必须要从落点方向开始遍历。
-// 当然，如果是给靠左的方块更新num，理论上也可以反过来遍历
 leftbtn.addEventListener('click', function (e) {
     if (!l_open) return
     t_open = false;
@@ -373,6 +360,7 @@ rightbtn.addEventListener('click', function (e) {
             reposition(block, 'right', count);
         }, timeout);
     }
+    
     oldscoreNum = scoreNum;
     scoreNum = newscoreNum;
     score.innerText = scoreNum;
@@ -479,8 +467,6 @@ bottombtn.addEventListener('click', function (e) {
     }, timeout + 100)
 })
 
-
-
 function getCount(block, position, _, count = 0) {
     if (!block[position]) {
         return count
@@ -488,7 +474,6 @@ function getCount(block, position, _, count = 0) {
         return getCount(block[position], position, _, count + block[position][_])
     }
 }
-
 
 function reposition(block, position, count) {
     if (count === 0) return
@@ -712,7 +697,6 @@ speed.addEventListener('click', function () {
         block.element.className = `block block_active ${speedClass} ${isHanzi ? 'Hanzi' : ''}`
     })
 })
-
 
 function getSpeed() {
     let speedClass = ''
